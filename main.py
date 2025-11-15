@@ -246,7 +246,7 @@ def matches_by_league(league:str):
                     matches.c.match_completion != 'Full time'
                 )).order_by(matches.c.kickoff.asc()).limit(50)
             )
-            league_table = conn.execute(
+            database_league_table = conn.execute(
                 select(league_table).where(league_table.c.league == league).order_by(league_table.c.position.desc())
             )
     datas = []
@@ -297,7 +297,7 @@ def matches_by_league(league:str):
             
             }
             the_fixtures.append(data)
-    for row in league_table:
+    for row in database_league_table:
             data = {
                 'group':row.group,
                 'league':row.league,
