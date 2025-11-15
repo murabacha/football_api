@@ -257,7 +257,7 @@ def matches_by_league(league:str):
     if fixtures is None:
         the_fixtures = []
     if league_table is None:
-        league_table = []
+        the_league_table = []
     
     for res in results:
             data = {
