@@ -6,6 +6,7 @@ import json
 from fastapi.middleware.cors import CORSMiddleware
 
 
+app = FastAPI()
 origins = ["*"]
 
 # 2. Add the CORS middleware to your application.
@@ -18,7 +19,6 @@ app.add_middleware(
     allow_headers=["*"],         # Allows all headers
 )
 
-app = FastAPI()
 connect_args = {'ssl':{'mode':'REQUIRED'}}
 engine = create_engine('mysql+pymysql://avnadmin:AVNS_TTsiC2_1m5LG1Uh7112@robert-football-database2025-robertthuo2004-f295.i.aivencloud.com:26666/football_data',connect_args =  connect_args)
                 # engine  = create_engine('mysql+pymysql://root:robert@localhost/football')
