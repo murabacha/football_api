@@ -3,6 +3,20 @@ from sqlalchemy import *
 import datetime
 from pydantic import BaseModel
 import json
+from fastapi.middleware.cors import CORSMiddleware
+
+
+origins = ["*"]
+
+# 2. Add the CORS middleware to your application.
+# This should be placed before your API routes.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,       # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],         # Allows all methods (GET, POST, etc.)
+    allow_headers=["*"],         # Allows all headers
+)
 
 app = FastAPI()
 connect_args = {'ssl':{'mode':'REQUIRED'}}
